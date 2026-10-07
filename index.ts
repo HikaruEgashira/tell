@@ -6,11 +6,12 @@ const VERSION = typeof __VERSION__ !== "undefined" ? __VERSION__ : "dev";
 
 // `tell` は Codex app-server の1ターンだけを回す非対話クライアント。
 // 設定はここで固定し、環境差で挙動が変わらないようにする。
-const MODEL = "gpt-6.1-sol";
+// gpt-6-astra + ultrafast は OpenAI API 公式仕様:
+// https://developers.openai.com/api/docs/guides/ultrafast-mode
+//（Ultrafast は GPT-6 Astra で広く利用可能。opencodex も foreign tier としてそのまま転送する）
+const MODEL = "gpt-6-astra";
 const EFFORT = "low";
-// gpt-6.1-sol の catalog が持つ Fast tier は `priority` のみ。`ultrafast` は
-// gpt-5.6-sol 専用で、他モデルでは opencodex が intent 記録だけで実速にならない。
-const SERVICE_TIER = "priority";
+const SERVICE_TIER = "ultrafast";
 
 type Json = any;
 
