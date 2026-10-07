@@ -1,7 +1,7 @@
 # tell
 
 `tell "..."` とすると、Codex app-server 経由で1ターンだけ非対話実行する CLI。
-モデルは `gpt-6-astra`、reasoning effort は `low`、service tier は `ultrafast` に固定。
+モデルは `gpt-6.1-sol`、reasoning effort は `low`、service tier は `priority` (Fast) に固定。
 
 出力にフェンス付きコードブロック (```` ``` ````) が含まれていれば、自動で `pbcopy` する。
 
