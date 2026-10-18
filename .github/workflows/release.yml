@@ -14,7 +14,6 @@ jobs:
       matrix:
         os:
           - hikae-flash
-          - macos-latest
     timeout-minutes: 5
     runs-on: ${{ matrix.os }}
     steps:
@@ -34,10 +33,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-latest
+          # Bun cross-compiles the darwin binaries on the Linux runner, so the
+          # macOS runner is gone without dropping the release artifacts.
+          - os: hikae-flash
             target: bun-darwin-arm64
             suffix: darwin-arm64
-          - os: macos-latest
+          - os: hikae-flash
             target: bun-darwin-x64
             suffix: darwin-x64
     timeout-minutes: 5
